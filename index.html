@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - BTS SIO SLAM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        .animate-fade-in { animation: fade-in 2s ease-in-out forwards; }
+        .animate-glow { animation: glow 8s infinite; }
+        .animate-title { animation: fade-in 3s ease-in-out forwards; }
+    </style>
+</head>
+<body class="bg-black">
+<div class="relative flex flex-col items-center justify-center min-h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black px-4">
+
+    <!-- Navigation -->
+    <nav class="my-8 sm:my-16 animate-fade-in w-full">
+        <ul class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <li><a class="text-base sm:text-lg text-zinc-500 hover:text-zinc-300 duration-500" href="projet.html">Projets</a></li>
+            <li><a class="text-base sm:text-lg text-zinc-500 hover:text-zinc-300 duration-500" href="/">Documentation</a></li>
+            <li><a class="text-base sm:text-lg text-zinc-500 hover:text-zinc-300 duration-500" href="/">À propos</a></li>
+            <li><a class="text-base sm:text-lg text-zinc-500 hover:text-zinc-300 duration-500" href="/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ligne décorative -->
+    <div class="w-full h-px bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 animate-glow"></div>
+
+    <!-- Fond animé -->
+    <div class="absolute inset-0 -z-10 animate-fade-in" aria-hidden="true">
+        <canvas id="bg-canvas"></canvas>
+    </div>
+
+    <!-- Nom -->
+    <h1 class="z-10 py-3.5 px-0.5 text-3xl sm:text-5xl md:text-7xl lg:text-9xl text-transparent bg-white bg-clip-text font-bold cursor-default animate-title text-center">
+        KANICI Hasan
+    </h1>
+
+    <!-- Ligne décorative -->
+    <div class="w-full h-px bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 animate-glow"></div>
+
+    <!-- Sous-texte -->
+    <div class="my-8 sm:my-16 text-center animate-fade-in">
+        <h2 class="px-2 sm:px-0 text-xs sm:text-sm md:text-base text-zinc-500">
+            Étudiant en <span class="underline hover:text-zinc-300 duration-500">BTS SIO SLAM</span>, passionné par le développement web.
+        </h2>
+    </div>
+
+</div>
+
+<!-- JS pour l’animation du canvas -->
+<script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const particles = [];
+    for (let i = 0; i < 100; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 2,
+            dx: (Math.random() - 0.5) * 0.5,
+            dy: (Math.random() - 0.5) * 0.5
+        });
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'white';
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fill();
+            p.x += p.dx;
+            p.y += p.dy;
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
+</script>
+</body>
+</html>

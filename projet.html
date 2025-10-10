@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Projets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation clic */
+        .click-anim {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .click-anim:active {
+            transform: scale(0.97);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-tl from-zinc-900 via-zinc-800 to-zinc-900 text-zinc-100">
+
+<!-- Header -->
+<header class="fixed inset-x-0 top-0 z-50 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur">
+    <div class="container flex items-center justify-between p-6 mx-auto">
+        <nav class="flex gap-8 text-lg font-medium">
+            <a href="projet.html" class="text-zinc-400 hover:text-zinc-100">Projets</a>
+            <a href="/" class="text-zinc-400 hover:text-zinc-100">Documentation</a>
+            <a href="about.html" class="text-zinc-400 hover:text-zinc-100">À propos</a>
+            <a href="contact.html" class="text-zinc-400 hover:text-zinc-100">Contact</a>
+        </nav>
+        <a href="index.html" class="text-zinc-300 hover:text-zinc-100 text-sm">← Accueil</a>
+    </div>
+</header>
+
+<!-- Contenu -->
+<main class="px-6 pt-32 mx-auto max-w-7xl lg:px-8 space-y-20">
+
+    <!-- Titre -->
+    <section class="text-center">
+        <h1 class="text-4xl font-bold sm:text-5xl">Mes Projets</h1>
+        <p class="mt-4 text-zinc-400">Découvrez une sélection de mes projets scolaires, personnels et professionnels.</p>
+    </section>
+
+    <!-- Projets scolaires et personnels -->
+    <section>
+        <header class="mb-8">
+            <h2 class="text-3xl font-bold text-zinc-100">Projets scolaires & personnels</h2>
+            <p class="mt-2 text-zinc-400">Réalisés dans le cadre du BTS SIO et en autodidacte.</p>
+        </header>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+            <!-- Exemple de projet -->
+            <a href="projet-details.html" class="block border border-zinc-700 rounded-xl p-6 bg-zinc-800/20 hover:border-zinc-400/50 hover:bg-zinc-800/40 duration-300 click-anim">
+                <h3 class="text-xl font-semibold">Nom du projet</h3>
+                <p class="mt-3 text-zinc-400 text-sm">Brève description du projet : contexte, objectif et ce que tu as appris.</p>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Stages -->
+    <section>
+        <header class="mb-8">
+            <h2 class="text-3xl font-bold text-zinc-100">Stages</h2>
+            <p class="mt-2 text-zinc-400">Expériences professionnelles réalisées durant ma formation.</p>
+        </header>
+        <div class="grid gap-8 sm:grid-cols-2">
+
+            <!-- Exemple de stage -->
+            <a href="stage-details.html" class="block border border-zinc-700 rounded-xl p-6 bg-zinc-800/20 hover:border-zinc-400/50 hover:bg-zinc-800/40 duration-300 click-anim">
+                <h3 class="text-2xl font-semibold">Nom de l’entreprise</h3>
+                <p class="mt-2 text-sm text-zinc-400">Période du stage</p>
+                <p class="mt-4 text-zinc-400 text-sm">Missions principales, outils utilisés et compétences acquises.</p>
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="py-10 mt-20 border-t border-zinc-800 text-center text-zinc-500 text-sm">
+    © 2025 Ton Nom - Portfolio BTS SIO SLAM
+</footer>
+
+</body>
+</html>
